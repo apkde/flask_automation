@@ -1,0 +1,197 @@
+.format-btn {
+    @apply px-4 py-2 rounded-lg border border-gray-600 bg-gray-700 text-gray-300 hover:bg-gray-600 transition duration-200;
+}
+
+.format-btn.selected {
+    @apply bg-blue-500 text-white border-blue-500 hover:bg-blue-600;
+}
+
+#result {
+    font-family: 'Fira Code', 'Consolas', monospace;
+    tab-size: 4;
+    padding-left: 2rem;
+    position: relative;
+    background: rgba(249, 250, 251, 0.95);
+}
+
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+#translate-btn.loading::after,
+#export-btn.loading::after {
+    content: "...";
+    animation: loading 1s infinite;
+}
+
+@keyframes loading {
+    0% { content: "."; }
+    33% { content: ".."; }
+    66% { content: "..."; }
+}
+
+/* Custom scrollbar for the result box */
+#result::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+#result::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 4px;
+}
+
+#result::-webkit-scrollbar-thumb {
+    background: #e5e7eb;
+    border-radius: 4px;
+}
+
+#result::-webkit-scrollbar-thumb:hover {
+    background: #d1d5db;
+}
+
+.select-container {
+    @apply mb-4;
+}
+
+.select-container select {
+    @apply w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+#export-btn {
+    @apply mt-4 w-full bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition duration-200;
+    display: none;
+}
+
+#copilot-btn.loading::after {
+    content: "...";
+    animation: loading 1s infinite;
+}
+
+/* Add these animations */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.opacity-0 {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.animate-bounce {
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(-25%); }
+    50% { transform: translateY(0); }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .5; }
+}
+
+#splash-screen {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: #111827;
+    transition: opacity 0.5s ease-out;
+}
+
+#welcome-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+}
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Custom scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(31, 41, 55, 0.5);
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(75, 85, 99, 0.5);
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(107, 114, 128, 0.5);
+}
+
+/* Line numbers */
+#line-numbers {
+    font-family: 'Fira Code', 'Consolas', monospace;
+    border-right: 1px solid rgba(75, 85, 99, 0.2);
+    border-top-left-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+}
+
+/* Copy button animation */
+@keyframes copySuccess {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.copy-success {
+    animation: copySuccess 0.3s ease-in-out;
+    color: #10B981;
+}
+
+/* Voice Interface Animations */
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+@keyframes wave {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+#voice-wave.animate-pulse {
+    animation: wave 1.5s ease-in-out infinite;
+}
+
+#voice-interface {
+    transition: opacity 0.3s ease-out;
+}
+
+#voice-interface.hidden {
+    opacity: 0;
+    pointer-events: none;
+} 
